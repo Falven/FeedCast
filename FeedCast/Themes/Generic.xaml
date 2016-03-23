@@ -1,0 +1,30 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/client/2007"
+                    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+                    xmlns:m="clr-namespace:FeedCast.Models">
+    
+    <Style TargetType="m:HeaderedListBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="m:HeaderedListBox">
+                    <ScrollViewer>
+                        <StackPanel>                            
+                            <!--Alternate PanoramaItem header that scrolls with the content for more vieweing area-->
+                            <TextBlock Name="Header"
+                                       Text="{Binding HeaderText, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                       Style="{StaticResource PhoneTextTitle1Style}"/>
+                            
+                            <!--To show the last time articles were updated-->
+                            <TextBlock Name="LastUpdated"
+                                       Grid.Row="1"
+                                       Text="{Binding LastUpdatedText, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                       Style="{StaticResource PhoneTextSmallStyle}"/>
+                            
+                            <!--Container for articles-->
+                            <ItemsPresenter/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
